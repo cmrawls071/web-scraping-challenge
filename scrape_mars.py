@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup as bs
 import requests
 from splinter import Browser
 import pandas as pd
-import json
 
 def init_browser():
     executable_path = {'executable_path': 'chromedriver.exe'}
@@ -44,13 +43,17 @@ def scrape():
 
     # Visit the Mars Weather Twitter page
     weather_url = 'https://twitter.com/marswxreport?lang=en'
-    browser.visit(weather_url)
+    from selenium import webdriver
+    driver = webdriver.Chrome()
+    driver.get(weather_url)
+    html = driver.page_source
+    driver.close()
 
 
     # Extract the current weather on Mars
     weather_html = browser.html
-    soup = bs(weather_html, 'html.parser')
-    mars_weather = soup.find('div', lang="en").text.strip()
+    soup = bs(html, 'html.parser')
+    mars_weather = soup.find('div', class_="css-901oao r-hkyrab r-1qd0xha r-a023e6 r-16dba41 r-ad9z0x r-bcqeeo r-bnwqim r-qvutc0").text.strip()
 
 
     # Visit the Space Facts page about Mars
@@ -62,7 +65,15 @@ def scrape():
     table = pd.read_html(facts_url)
     profile = table[0]
     profile_df = profile.rename(columns={0: 'Description', 1: 'Value'})
-    facts = profile_df.to_json(orient='records')
+    facts = []
+    for index, row in profile_df.iterrows():
+        desc = row['Description']
+        value = row['Value']
+        fact = {
+            'description': desc,
+            'value': value
+        }
+        facts.append(fact)
 
 
     # Visit the USGS Astrogeology site

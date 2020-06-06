@@ -7,10 +7,6 @@ app = Flask(__name__)
 # setup mongo connection
 mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_db")
 
-# # connect to mongo db and collection
-# db = client.mars_db
-# collection = db.mars_data
-
 
 @app.route("/")
 def index():

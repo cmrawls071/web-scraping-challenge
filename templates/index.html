@@ -17,7 +17,6 @@
     </div>
 
   <!-- Mars Data -->
-  <!-- {% for item in mars %} -->
     <div class="row">
       <div class="col-md-12">
         <h2 class="heading">Latest Mars News</h4>
@@ -25,79 +24,109 @@
         <p>{{mars.news_paragraph}}</p>
       </div>
     </div>
-  <div class="row">
-    <div class="col-md-9">
-      <h2 class="heading">Featured Mars Image</h4>
-        <img src="{{mars.featured_image}}">
-    </div>
-    <div class="col-md-3">
-      <div class="row">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h3 class="card-title">Current Weather on Mars</h3>
-            <p class="card-text">{{mars.mars_weather}}</p>
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="heading">Featured Mars Image</h4>
+          <img src="{{mars.featured_image}}" class = "img-responsive" width = "100%">
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="card" style="width: 100%">
+            <div class="card-body">
+              <h3 class="card-title">Current Weather on Mars</h3>
+              <p class="card-text">{{mars.mars_weather}}</p>
+            </div>
           </div>
+          </div>
+        <div class="row">
+          <h3>Mars Facts</h3>
+          <table class="table">
+            <tbody>
+                <tr>
+                  <td>
+                    {{mars.mars_facts[0]['description']}}
+                    {{mars.mars_facts[0]['value']}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{mars.mars_facts[1]['description']}}
+                    {{mars.mars_facts[1]['value']}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{mars.mars_facts[2]['description']}}
+                    {{mars.mars_facts[2]['value']}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{mars.mars_facts[3]['description']}}
+                    {{mars.mars_facts[3]['value']}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{mars.mars_facts[4]['description']}}
+                    {{mars.mars_facts[4]['value']}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{mars.mars_facts[5]['description']}}
+                    {{mars.mars_facts[5]['value']}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{mars.mars_facts[6]['description']}}
+                    {{mars.mars_facts[6]['value']}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{mars.mars_facts[7]['description']}}
+                    {{mars.mars_facts[7]['value']}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{mars.mars_facts[8]['description']}}
+                    {{mars.mars_facts[8]['value']}}
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>                    
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-med-12">
+        <h2>Mars Hemispheres</h2>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="col-md-6">
+        <h3>{{mars.hemisphere_image_urls[0]['title']}}</h3>
+          <img img src="{{mars.hemisphere_image_urls[0]['img_url']}}" class = "img-responsive" width = "80%">
+      </div>
+      <div class="col-md-6">
+        <h3>{{mars.hemisphere_image_urls[1]['title']}}</h3>
+          <img img src="{{mars.hemisphere_image_urls[1]['img_url']}}" class = "img-responsive" width = "80%">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>{{mars.hemisphere_image_urls[2]['title']}}</h3>
+          <img img src="{{mars.hemisphere_image_urls[2]['img_url']}}" class="img-responsive" width = "80%">
+      </div>
+      <div class="col-md-6">
+        <h3>{{mars.hemisphere_image_urls[3]['title']}}</h3>
+          <img img src="{{mars.hemisphere_image_urls[3]['img_url']}}" class="img-responsive" width = "80%">
         </div>
-        </div>
-      <div class="row">
-        <table class="table">
-          <tbody>
-            {% for row in mars.mars_facts%}
-            <tr>
-              <td>
-                {mas}
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-        
-        {{mars.mars_facts}}
-      </div>                    
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-med-12">
-      <h2>Mars Hemispheres</h2>
-    </div>
-  </div> 
-  {% for item in hemisphere_image_urls %}  
-  <div class="row">
-    <div class="col-med-6">
-      <div class="card" style="width: 18rem;">
-        <img src={{ item.img_url }} class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-          </div>
       </div>
     </div>
-    <div class="col-med-6">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-          </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-med-6">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col-med-6">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-          </div>
-      </div>
-    </div>
-  </div>
   </div>
 </body>
 
